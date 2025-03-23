@@ -60,6 +60,9 @@
     "vitest": "^3.0.0"
   },
   "dependencies": {
-    "@inlang/paraglide-js": "^2.0.0"
+    "@fontsource/atkinson-hyperlegible": "^5.2.5",
+    "@fontsource/jetbrains-mono": "^5.2.5",
+    "@inlang/paraglide-js": "^2.0.0",
+    "lucide-svelte": "^0.483.0"
   }
 }
