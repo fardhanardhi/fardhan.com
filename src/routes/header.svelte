@@ -60,8 +60,11 @@
   </script>
 </svelte:head>
 
+<input type="checkbox" value="halloween" class="toggle theme-controller hidden" checked={darkMode} />
+<input type="checkbox" value="light" class="toggle theme-controller hidden" checked={!darkMode} />
+
 <nav
-  class="fixed top-0 z-50 mx-auto w-full max-w-7xl justify-between px-4 py-4 text-gray-900 md:flex md:px-8 md:py-8 dark:text-white"
+  class="base-300 fixed top-0 z-50 mx-auto w-full max-w-7xl justify-between px-4 py-4 transition-colors duration-200 md:flex md:px-8 md:py-8"
 >
   <a href="/" class="title flex-1">
     <b>{config.title}</b>
