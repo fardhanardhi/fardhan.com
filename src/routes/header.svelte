@@ -15,11 +15,7 @@
     }
 
     // Update document class
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    setDocumentStyleTheme(darkMode);
   }
 
   // Initialize dark mode from localStorage or system preference
@@ -36,12 +32,18 @@
     }
 
     // Apply initial state
+    setDocumentStyleTheme(darkMode);
+  });
+
+  function setDocumentStyleTheme(darkMode: boolean) {
     if (darkMode) {
       document.documentElement.classList.add('dark');
+      document.documentElement.setAttribute('data-theme', 'halloween');
     } else {
       document.documentElement.classList.remove('dark');
+      document.documentElement.setAttribute('data-theme', 'light');
     }
-  });
+  }
 </script>
 
 <svelte:head>
@@ -59,9 +61,6 @@
     }
   </script>
 </svelte:head>
-
-<input type="checkbox" value="halloween" class="toggle theme-controller hidden" checked={darkMode} />
-<input type="checkbox" value="light" class="toggle theme-controller hidden" checked={!darkMode} />
 
 <nav
   class="base-300 fixed top-0 z-50 mx-auto w-full max-w-7xl justify-between px-4 py-4 transition-colors duration-200 md:flex md:px-8 md:py-8"
