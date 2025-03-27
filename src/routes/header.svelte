@@ -2,46 +2,33 @@
   import { onMount } from 'svelte';
   import * as config from '$lib/config';
 
-  // Dark mode state
   let darkMode = $state(false);
 
-  // Toggle dark mode function
-  function toggleDarkMode() {
-    darkMode = !darkMode;
-
-    // Update localStorage
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('darkMode', darkMode ? 'true' : 'false');
-    }
-
-    // Update document class
-    setDocumentStyleTheme(darkMode);
-  }
-
-  // Initialize dark mode from localStorage or system preference
   onMount(() => {
-    // Check localStorage first
     const savedDarkMode = localStorage.getItem('darkMode');
 
     if (savedDarkMode !== null) {
-      // Use saved preference
       darkMode = savedDarkMode === 'true';
     } else {
-      // Check system preference
       darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
-
-    // Apply initial state
-    setDocumentStyleTheme(darkMode);
   });
 
-  function setDocumentStyleTheme(darkMode: boolean) {
+  $effect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
       document.documentElement.setAttribute('data-theme', 'halloween');
     } else {
       document.documentElement.classList.remove('dark');
       document.documentElement.setAttribute('data-theme', 'light');
+    }
+  });
+
+  function toggleDarkMode() {
+    darkMode = !darkMode;
+
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('darkMode', darkMode ? 'true' : 'false');
     }
   }
 </script>
