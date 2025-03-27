@@ -27,7 +27,7 @@
   <div class="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
     <!-- Profile Photo -->
     <div
-      class="profilebg mb-6 h-32 w-32 overflow-hidden rounded-full border-4 border-gray-200 transition-colors duration-200 md:h-40 md:w-40 dark:border-gray-700"
+      class="profilebg border-base-300 mb-6 h-32 w-32 overflow-hidden rounded-full border-4 transition-colors duration-200 md:h-40 md:w-40"
     >
       <img
         onload={() => {
@@ -41,15 +41,13 @@
 
     <!-- Name -->
     <h1
-      class="mb-4 text-4xl font-bold text-gray-900 transition-colors duration-200 md:text-5xl dark:text-white"
+      class="text-base-content mb-4 text-4xl font-bold transition-colors duration-200 md:text-5xl"
     >
       {name}
     </h1>
 
     <!-- Brief Bio - Optional -->
-    <p
-      class="mb-8 max-w-md text-lg text-gray-600 transition-colors duration-200 dark:text-gray-400"
-    >
+    <p class="text-base-content/85 mb-8 max-w-md text-lg transition-colors duration-200">
       {bio}
     </p>
 
