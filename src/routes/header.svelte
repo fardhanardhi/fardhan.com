@@ -71,7 +71,7 @@
   <!-- Dark Mode Toggle -->
   <div class="flex-1 md:text-end">
     <button
-      class="rounded-full bg-gray-200 p-2 text-gray-800 transition-colors duration-200 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
+      class="rounded-full bg-gray-200 p-2 text-gray-800 transition-colors duration-100 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
       onclick={toggleDarkMode}
       aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
     >
