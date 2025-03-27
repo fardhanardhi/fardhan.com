@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import * as config from '$lib/config';
 
-  let darkMode = $state(false);
+  let darkMode: boolean | null = $state(null);
 
   onMount(() => {
     const savedDarkMode = localStorage.getItem('darkMode');
@@ -17,7 +17,7 @@
   $effect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
-      document.documentElement.setAttribute('data-theme', 'halloween');
+      document.documentElement.setAttribute('data-theme', 'sunset');
     } else {
       document.documentElement.classList.remove('dark');
       document.documentElement.setAttribute('data-theme', 'light');
@@ -49,9 +49,7 @@
   </script>
 </svelte:head>
 
-<nav
-  class="base-300 text-base-content fixed top-0 z-50 mx-auto w-full max-w-7xl justify-between px-4 py-4 transition-colors duration-200 md:flex md:px-8 md:py-8"
->
+<nav class="header">
   <a href="/" class="title flex-1">
     <b>{config.title}</b>
   </a>
@@ -70,18 +68,18 @@
 
   <!-- Dark Mode Toggle -->
   <div class="flex-1 md:text-end">
-    <label class="swap swap-rotate duration-75">
+    <label class="swap swap-rotate duration-75 {darkMode === null && 'hidden'}">
       <!-- this hidden checkbox controls the state -->
       <!-- <button
         onclick={toggleDarkMode}
         aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
       >
       </button> -->
-      <input hidden type="checkbox" onclick={toggleDarkMode} />
+      <input hidden type="checkbox" onclick={toggleDarkMode} bind:checked={darkMode} />
 
       <!-- sun icon -->
       <svg
-        class="swap-on text-warning-content h-10 w-10 fill-current duration-300 delay-75"
+        class="swap-on text-warning h-8 w-8 fill-current delay-75 duration-300"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >
@@ -92,7 +90,7 @@
 
       <!-- moon icon -->
       <svg
-        class="swap-off text-warning h-10 w-10 fill-current duration-300 delay-75"
+        class="swap-off text-warning-content h-8 w-8 fill-current delay-75 duration-300"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >
@@ -103,3 +101,16 @@
     </label>
   </div>
 </nav>
+
+<style lang="postcss">
+  @reference "../app.css";
+
+  .header {
+    @apply text-base-content;
+    @apply fixed top-0 z-50 mx-auto w-full max-w-7xl;
+    @apply justify-between;
+    @apply transition-colors;
+    @apply duration-200;
+    @apply px-4 py-4 md:flex md:px-8 md:py-8;
+  }
+</style>
