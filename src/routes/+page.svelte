@@ -23,9 +23,7 @@
   let classActive = $derived(isLoad ? 'opacity-100' : 'opacity-0');
 </script>
 
-<main
-  class="flex min-h-screen flex-col items-center justify-center p-4 transition-colors duration-200 md:p-24"
->
+<main class="flex min-h-screen flex-col items-center justify-center p-4 md:p-24">
   <div class="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
     <!-- Profile Photo -->
     <div
@@ -43,14 +41,14 @@
 
     <!-- Name -->
     <h1
-      class="mb-4 text-4xl font-bold text-gray-900 transition-colors duration-700 md:text-5xl dark:text-white"
+      class="mb-4 text-4xl font-bold text-gray-900 transition-colors duration-200 md:text-5xl dark:text-white"
     >
       {name}
     </h1>
 
     <!-- Brief Bio - Optional -->
     <p
-      class="mb-8 max-w-md text-lg text-gray-600 transition-colors duration-700 dark:text-gray-400"
+      class="mb-8 max-w-md text-lg text-gray-600 transition-colors duration-200 dark:text-gray-400"
     >
       {bio}
     </p>
@@ -142,7 +140,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="text-sm text-gray-500 transition-colors duration-700 dark:text-gray-400">
+    <footer class="text-sm text-gray-500 transition-colors duration-200 dark:text-gray-400">
       Made with ❤️ by {name.split(' ').at(0)}
     </footer>
   </div>
