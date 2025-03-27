@@ -56,13 +56,14 @@
 
   <ul class="my-4 flex-3 justify-center md:my-0 md:flex md:gap-8">
     <li>
-      <a href="/about">About</a>
+      <a href="javascript:void(0);">About</a>
     </li>
     <li>
-      <a href="/contact">Contact</a>
+      <a href="javascript:void(0);">Contact</a>
     </li>
     <li>
-      <a href="/rss.xml" target="_blank">RSS</a>
+      <a href="javascript:void(0);">RSS</a>
+      <!-- <a href="javascript:void(0);" target="_blank">RSS</a> -->
     </li>
   </ul>
 
