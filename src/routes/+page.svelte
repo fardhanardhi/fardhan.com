@@ -24,7 +24,7 @@
 </script>
 
 <main
-  class="flex min-h-screen flex-col items-center justify-center bg-white p-4 transition-colors duration-200 md:p-24 dark:bg-gray-900"
+  class="flex min-h-screen flex-col items-center justify-center p-4 transition-colors duration-200 md:p-24"
 >
   <div class="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
     <!-- Profile Photo -->
@@ -151,19 +151,5 @@
 <style>
   .profilebg {
     background-color: #cfd5e2;
-  }
-
-  /* This ensures the dark mode works with Tailwind */
-  :global(html) {
-    height: 100%;
-    background-color: var(--color-gray-900);
-  }
-
-  :global(body) {
-    height: 100%;
-    margin: 0;
-    font-family:
-      -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-      'Helvetica Neue', sans-serif;
   }
 </style>

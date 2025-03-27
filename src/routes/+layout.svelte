@@ -19,3 +19,19 @@
 
   <!-- <Footer /> -->
 </div>
+
+<style lang="postcss">
+  /* This ensures the dark mode works with Tailwind */
+  :global(html) {
+    height: 100%;
+    @apply transition-colors duration-200;
+  }
+
+  :global(body) {
+    height: 100%;
+    margin: 0;
+    font-family:
+      -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+      'Helvetica Neue', sans-serif;
+  }
+</style>
