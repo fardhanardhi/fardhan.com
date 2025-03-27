@@ -25,6 +25,7 @@
   :global(html) {
     height: 100%;
     @apply transition-colors duration-200;
+    background-color: var(--color-base-200);
   }
 
   :global(body) {
