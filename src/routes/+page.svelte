@@ -26,9 +26,7 @@
 <main class="flex min-h-screen flex-col items-center justify-center p-4 md:p-24">
   <div class="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
     <!-- Profile Photo -->
-    <div
-      class="profilebg border-base-300 mb-6 h-32 w-32 overflow-hidden rounded-full border-4 transition-colors duration-200 md:h-40 md:w-40"
-    >
+    <div class="profilebg">
       <img
         onload={() => {
           isLoad = true;
@@ -65,7 +63,7 @@
           target="_blank"
           rel="noopener noreferrer"
           aria-label={link.name}
-          class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-gray-300 bg-white text-gray-700 transition-colors duration-200 hover:bg-gray-100 hover:transition-none hover:duration-0 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+          class="icon-item"
         >
           {#if link.icon === 'github'}
             <svg
@@ -138,14 +136,40 @@
     </div>
 
     <!-- Footer -->
-    <footer class="text-sm text-gray-500 transition-colors duration-200 dark:text-gray-400">
+    <footer class="text-base-content/75 text-sm transition-colors duration-200">
       Made with ❤️ by {name.split(' ').at(0)}
     </footer>
   </div>
 </main>
 
-<style>
+<style lang="postcss">
+  @reference "../app.css";
+
   .profilebg {
     background-color: #cfd5e2;
+    @apply border-base-300;
+    @apply mb-6 h-32 w-32;
+    @apply overflow-hidden;
+    @apply rounded-full;
+    @apply border-4;
+    @apply transition-colors;
+    @apply duration-200;
+    @apply md:h-40 md:w-40;
+  }
+  .icon-item {
+    @apply bg-base-100;
+    @apply text-base-content;
+    @apply hover:bg-base-300;
+    @apply border-base-content/25;
+    @apply inline-flex;
+    @apply h-10 w-10;
+    @apply items-center;
+    @apply justify-center;
+    @apply rounded-md;
+    @apply border;
+    @apply transition-colors;
+    @apply duration-200;
+    @apply hover:transition-none;
+    @apply hover:duration-0;
   }
 </style>
