@@ -114,12 +114,12 @@
     </ul>
   </div>
   <div class="navbar-end">
-    <div class="flex-1 text-end">
+    <div class="flex-1 pr-2 text-end xl:pr-4">
       <label class="swap swap-rotate duration-75 {darkMode === null && 'hidden'}">
         <input hidden type="checkbox" onclick={toggleDarkMode} bind:checked={darkMode} />
 
         <svg
-          class="swap-on text-warning h-8 w-8 fill-current delay-75 duration-300"
+          class="swap-on text-warning h-6 w-6 fill-current delay-75 duration-300"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >
@@ -129,7 +129,7 @@
         </svg>
 
         <svg
-          class="swap-off text-warning-content h-8 w-8 fill-current delay-75 duration-300"
+          class="swap-off text-warning-content h-6 w-6 fill-current delay-75 duration-300"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >
@@ -147,9 +147,13 @@
 
   .header {
     @apply navbar;
-    @apply text-base-content;
-    @apply sticky top-0;
-    @apply bg-base-100;
+    @apply text-base-content xl:text-base-content;
+    @apply sticky top-0 xl:top-4;
+    @apply bg-base-100/30 xl:bg-base-300/30 dark:bg-neutral/75;
+    @apply shadow-lg xl:shadow-xl dark:shadow-2xl;
+    @apply shadow-neutral/5 xl:shadow-neutral/5 dark:shadow-base-300;
+    @apply rounded-none xl:rounded-4xl;
+    @apply backdrop-blur-lg dark:backdrop-blur-lg;
   }
 
   .header-home {
