@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { page } from '$app/state';
   import { onMount } from 'svelte';
   import * as config from '$lib/config';
 
@@ -31,6 +32,13 @@
       localStorage.setItem('darkMode', darkMode ? 'true' : 'false');
     }
   }
+
+  const pages = [
+    { name: 'Blog', url: '/blog', icon: 'github' },
+    { name: 'About', url: '/', icon: 'github' },
+    { name: 'Contact', url: '/', icon: 'instagram' },
+    { name: 'RSS', url: '/', icon: 'linkedin' }
+  ];
 </script>
 
 <svelte:head>
@@ -49,7 +57,7 @@
   </script>
 </svelte:head>
 
-<div class="navbar text-base-content fixed top-0 z-50 mx-auto w-full max-w-7xl bg-transparent">
+<div class={page.url.pathname === '/' ? 'header-home' : 'header'}>
   <div class="navbar-start">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -69,26 +77,26 @@
         </svg>
       </div>
       <ul class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a href="/">About</a></li>
-        <li><a href="/">Contact</a></li>
-        <li><a href="/">RSS</a></li>
-        <li class="hidden">
+        {#each pages as link}
+          <li><a href={link.url}>{link.name}</a></li>
+        {/each}
+        <!-- <li>
           <a>Parent</a>
           <ul class="p-2">
             <li><a href="javascript:void(0);">Submenu 1</a></li>
             <li><a href="javascript:void(0);">Submenu 2</a></li>
           </ul>
-        </li>
+        </li> -->
       </ul>
     </div>
     <a href="/" class="btn btn-ghost hidden text-xl md:flex">{config.title}</a>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-      <li><a href="/">About</a></li>
-      <li><a href="/">Contact</a></li>
-      <li><a href="/">RSS</a></li>
-      <li class="hidden">
+      {#each pages as link}
+        <li><a href={link.url}>{link.name}</a></li>
+      {/each}
+      <!-- <li>
         <details>
           <summary>Parent</summary>
           <ul class="p-2">
@@ -96,7 +104,7 @@
             <li><a>Submenu 2</a></li>
           </ul>
         </details>
-      </li>
+      </li> -->
     </ul>
   </div>
   <div class="navbar-end">
@@ -132,11 +140,17 @@
   @reference "../app.css";
 
   .header {
+    @apply navbar;
     @apply text-base-content;
-    @apply fixed top-0 z-50 mx-auto w-full max-w-7xl;
-    @apply justify-between;
-    @apply transition-colors;
-    @apply duration-200;
-    @apply px-4 py-4 md:flex md:px-8 md:py-8;
+    @apply sticky top-0;
+    @apply bg-base-100;
+  }
+
+  .header-home {
+    @apply navbar;
+    @apply text-base-content;
+    @apply fixed top-0 z-50 mx-auto;
+    @apply w-full max-w-7xl;
+    @apply bg-transparent;
   }
 </style>

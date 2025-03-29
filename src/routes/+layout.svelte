@@ -21,18 +21,36 @@
 </div>
 
 <style lang="postcss">
+  @reference "../app.css";
+
   /* This ensures the dark mode works with Tailwind */
   :global(html) {
-    height: 100%;
+    /* height: 100%; */
     @apply transition-colors duration-200;
     background-color: var(--color-base-200);
   }
 
   :global(body) {
-    height: 100%;
+    /* height: 100%; */
     margin: 0;
     font-family:
-      -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-      'Helvetica Neue', sans-serif;
+      Atkinson Hyperlegible,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      'Open Sans',
+      'Helvetica Neue',
+      sans-serif;
+  }
+
+  :global(code, pre, tt, kbd, samp) {
+    font-family:
+      JetBrains Mono,
+      'Noto Sans Mono',
+      monospace;
   }
 </style>
