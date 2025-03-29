@@ -27,7 +27,7 @@
   </div>
 </article>
 
-<style>
+<!-- <style>
   article {
     max-inline-size: var(--size-content-3);
     margin-inline: auto;
@@ -51,5 +51,29 @@
         border-radius: var(--radius-round);
       }
     }
+  }
+</style> -->
+
+<style lang="postcss">
+  @reference "../../../app.css";
+
+  article {
+    @apply mx-auto max-w-3xl;
+  }
+
+  article h1 {
+    @apply capitalize;
+  }
+
+  article h1 + p {
+    @apply mt-2 text-gray-500;
+  }
+
+  article .tags {
+    @apply mt-7 flex gap-3;
+  }
+
+  article .tags > * {
+    @apply rounded-full px-3 py-2;
   }
 </style>
