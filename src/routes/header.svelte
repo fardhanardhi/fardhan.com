@@ -89,10 +89,16 @@
         </li> -->
       </ul>
     </div>
-    <a href="/" class="btn btn-ghost hidden text-xl md:flex">{config.title}</a>
+    <a href="/" class="btn btn-ghost hidden text-xl lg:flex">{config.title}</a>
   </div>
-  <div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal px-1">
+  <div class="navbar-center">
+    <a
+      href="/"
+      class="btn btn-ghost {page.url.pathname === '/' && 'hidden'} text-xl {page.url.pathname !==
+        '/' && 'lg:hidden'}">{config.title}</a
+    >
+
+    <ul class="menu menu-horizontal hidden px-1 lg:flex">
       {#each pages as link}
         <li><a href={link.url}>{link.name}</a></li>
       {/each}
