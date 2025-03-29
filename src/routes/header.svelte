@@ -57,7 +57,7 @@
   </script>
 </svelte:head>
 
-<div class={page.url.pathname === '/' ? 'header-home' : 'header'}>
+<div class="{page.url.pathname === '/' ? 'header-home' : 'header'} anim">
   <div class="navbar-start">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -95,7 +95,12 @@
     <a
       href="/"
       class="btn btn-ghost {page.url.pathname === '/' && 'hidden'} text-xl {page.url.pathname !==
-        '/' && 'lg:hidden'}">{config.title}</a
+        '/' && 'sm:hidden'}">{config.title.split(' ')[0]}</a
+    >
+    <a
+      href="/"
+      class="btn btn-ghost {page.url.pathname === '/' && 'hidden'} text-xl {page.url.pathname !==
+        '/' && 'hidden sm:max-xl:flex lg:hidden'}">{config.title}</a
     >
 
     <ul class="menu menu-horizontal hidden px-1 lg:flex">
@@ -145,15 +150,30 @@
 <style lang="postcss">
   @reference "../app.css";
 
+  .anim {
+    @apply duration-200;
+    transition-property:
+      top color,
+      background-color,
+      border-color,
+      text-decoration-color,
+      fill,
+      display,
+      position,
+      border-radius,
+      stroke;
+  }
+
   .header {
     @apply navbar;
+
     @apply text-base-content xl:text-base-content;
     @apply sticky top-0 xl:top-4;
     @apply bg-base-100/30 xl:bg-base-300/30 dark:bg-neutral/75;
     @apply shadow-lg xl:shadow-xl dark:shadow-2xl;
     @apply shadow-neutral/5 xl:shadow-neutral/5 dark:shadow-base-300;
     @apply rounded-none xl:rounded-4xl;
-    @apply backdrop-blur-lg dark:backdrop-blur-lg;
+    @apply backdrop-blur-lg;
   }
 
   .header-home {
@@ -161,6 +181,7 @@
     @apply text-base-content;
     @apply fixed top-0 z-50 mx-auto;
     @apply w-full max-w-7xl;
-    @apply bg-transparent;
+    @apply bg-transparent lg:bg-base-200/50;
+    @apply lg:backdrop-blur-3xl;
   }
 </style>
