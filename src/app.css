@@ -199,7 +199,33 @@ li {
   }
 
   & pre {
-    @apply max-w-full rounded-lg p-3;
+    @apply max-w-full rounded-lg border-2 border-neutral-500 px-0 pt-0 pb-2;
     tab-size: 2;
   }
 }
+
+pre[data-code-title]:before {
+  @apply text-secondary transition-colors;
+  @apply bg-base-100;
+  /* font-size: 0.8125rem; */
+  @apply text-sm/8;
+  @apply font-bold;
+  content: attr(data-code-title);
+  @apply border-base-content/25 mb-2 block border-b px-4 pt-0;
+}
+
+code[data-line-numbers] > span[data-line-number]::before {
+  /* Insert the line number data attribute before the line */
+  content: attr(data-line-number);
+  /* Other styling */
+  @apply mx-4 inline-block w-4 text-right text-gray-500;
+}
+
+code > span[data-highlighted] {
+  @apply bg-accent/30 w-full;
+}
+
+code > span {
+  @apply my-0 inline-block text-sm/6;
+}
+

@@ -1,9 +1,10 @@
 import { mdsvex, escapeSvelte } from 'mdsvex';
-import { createHighlighter } from 'shiki';
+// import { createHighlighter } from 'shiki';
+import { createHighlighter } from '@bitmachina/highlighter';
 import adapter from '@sveltejs/adapter-netlify';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import remarkToc from 'remark-toc'
-import rehypeSlug from 'rehype-slug'
+import remarkToc from 'remark-toc';
+import rehypeSlug from 'rehype-slug';
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
@@ -12,39 +13,10 @@ const mdsvexOptions = {
     _: './src/mdsvex.svelte'
   },
   highlight: {
-    highlighter: async (code, lang = 'text') => {
-      const highlighter = await createHighlighter({
-        themes: ['poimandres'],
-        langs: [
-          'javascript',
-          'typescript',
-          'powershell',
-          'shellscript',
-          'dart',
-          'yaml',
-          'json',
-          'jsonc',
-          'html'
-        ]
-      });
-      await highlighter.loadLanguage(
-        'javascript',
-        'typescript',
-        'powershell',
-        'shellscript',
-        'dart',
-        'yaml',
-        'json',
-        'jsonc',
-        'html'
-      );
-      const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme: 'poimandres' }));
-      return `{@html \`${html}\` }`;
-    }
+    highlighter: await createHighlighter({ theme: 'poimandres' })
   },
   remarkPlugins: [[remarkToc, { tight: true }]],
-	rehypePlugins: [rehypeSlug]
-
+  rehypePlugins: [rehypeSlug]
 };
 
 /** @type {import('@sveltejs/kit').Config} */

@@ -60,6 +60,7 @@
     "vitest": "^3.0.0"
   },
   "dependencies": {
+    "@bitmachina/highlighter": "^1.0.0-alpha.7",
     "@fontsource/atkinson-hyperlegible": "^5.2.5",
     "@fontsource/jetbrains-mono": "^5.2.5",
     "@inlang/paraglide-js": "^2.0.0",
