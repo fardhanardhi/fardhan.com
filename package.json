@@ -64,6 +64,7 @@
     "@fontsource/jetbrains-mono": "^5.2.5",
     "@inlang/paraglide-js": "^2.0.0",
     "daisyui": "^5.0.9",
-    "lucide-svelte": "^0.483.0"
+    "lucide-svelte": "^0.483.0",
+    "shiki": "^3.2.1"
   }
 }
