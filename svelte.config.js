@@ -6,6 +6,9 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
   extensions: ['.md'],
+  layout: {
+    _: './src/mdsvex.svelte'
+  },
   highlight: {
     highlighter: async (code, lang = 'text') => {
       const highlighter = await createHighlighter({
