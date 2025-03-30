@@ -2,6 +2,8 @@ import { mdsvex, escapeSvelte } from 'mdsvex';
 import { createHighlighter } from 'shiki';
 import adapter from '@sveltejs/adapter-netlify';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import remarkToc from 'remark-toc'
+import rehypeSlug from 'rehype-slug'
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
@@ -39,7 +41,10 @@ const mdsvexOptions = {
       const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme: 'poimandres' }));
       return `{@html \`${html}\` }`;
     }
-  }
+  },
+  remarkPlugins: [[remarkToc, { tight: true }]],
+	rehypePlugins: [rehypeSlug]
+
 };
 
 /** @type {import('@sveltejs/kit').Config} */
