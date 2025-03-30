@@ -34,10 +34,10 @@
   }
 
   const pages = [
-    { name: 'Blog', url: '/blog', icon: 'github' },
-    { name: 'About', url: '/', icon: 'github' },
-    { name: 'Contact', url: '/', icon: 'instagram' },
-    { name: 'RSS', url: '/', icon: 'linkedin' }
+    { name: 'Blog', url: '/blog', icon: 'github', newTab: false },
+    { name: 'About', url: '/', icon: 'github', newTab: false },
+    { name: 'Contact', url: '/', icon: 'instagram', newTab: false },
+    { name: 'RSS', url: '/rss.xml', icon: 'linkedin', newTab: true }
   ];
 </script>
 
@@ -78,7 +78,7 @@
       </div>
       <ul class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         {#each pages as link}
-          <li><a href={link.url}>{link.name}</a></li>
+          <li><a href={link.url} target={link.newTab ? '_blank' : '_self'}>{link.name}</a></li>
         {/each}
         <!-- <li>
           <a>Parent</a>
@@ -105,7 +105,7 @@
 
     <ul class="menu menu-horizontal hidden px-1 lg:flex">
       {#each pages as link}
-        <li><a href={link.url}>{link.name}</a></li>
+        <li><a href={link.url} target={link.newTab ? '_blank' : '_self'}>{link.name}</a></li>
       {/each}
       <!-- <li>
         <details>
@@ -151,7 +151,7 @@
   @reference "../app.css";
 
   .anim {
-    @apply duration-200 delay-12;
+    @apply delay-12 duration-200;
     transition-property:
       top color,
       background-color,
@@ -181,7 +181,7 @@
     @apply text-base-content;
     @apply fixed top-0 z-50 mx-auto;
     @apply w-full max-w-7xl;
-    @apply bg-transparent lg:bg-base-200/50;
+    @apply lg:bg-base-200/50 bg-transparent;
     @apply rounded-none xl:rounded-4xl;
     @apply lg:backdrop-blur-3xl;
   }
