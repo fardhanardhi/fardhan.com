@@ -34,10 +34,10 @@
   }
 
   const pages = [
-    { name: 'Blog', url: '/blog', icon: 'github', newTab: false },
-    { name: 'About', url: '/', icon: 'github', newTab: false },
-    { name: 'Contact', url: '/', icon: 'instagram', newTab: false },
-    { name: 'RSS', url: '/rss.xml', icon: 'linkedin', newTab: true }
+    { name: 'Blog', url: '/blog', icon: 'github' },
+    { name: 'About', url: '/about', icon: 'github' },
+    { name: 'Contact', url: '/contact', icon: 'instagram' },
+    { name: 'RSS', url: '/rss.xml', icon: 'linkedin' }
   ];
 </script>
 
@@ -78,7 +78,7 @@
       </div>
       <ul class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         {#each pages as link}
-          <li><a href={link.url} target={link.newTab ? '_blank' : '_self'}>{link.name}</a></li>
+          <li><a href={link.url}>{link.name}</a></li>
         {/each}
         <!-- <li>
           <a>Parent</a>
@@ -105,7 +105,7 @@
 
     <ul class="menu menu-horizontal hidden px-1 lg:flex">
       {#each pages as link}
-        <li><a href={link.url} target={link.newTab ? '_blank' : '_self'}>{link.name}</a></li>
+        <li><a href={link.url}>{link.name}</a></li>
       {/each}
       <!-- <li>
         <details>
