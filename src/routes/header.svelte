@@ -151,7 +151,7 @@
   @reference "../app.css";
 
   .anim {
-    @apply duration-200;
+    @apply duration-200 delay-12;
     transition-property:
       top color,
       background-color,
@@ -182,6 +182,7 @@
     @apply fixed top-0 z-50 mx-auto;
     @apply w-full max-w-7xl;
     @apply bg-transparent lg:bg-base-200/50;
+    @apply rounded-none xl:rounded-4xl;
     @apply lg:backdrop-blur-3xl;
   }
 </style>
