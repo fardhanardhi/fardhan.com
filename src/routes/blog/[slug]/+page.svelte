@@ -18,7 +18,7 @@
 
   <div class="tags">
     {#each data.meta.categories as category}
-      <span class="surface-4">&num;{category}</span>
+      <span class="bg-primary/10">&num;{category}</span>
     {/each}
   </div>
 
@@ -59,21 +59,20 @@
 
   article {
     @apply mx-auto max-w-3xl;
-  }
+    h1 {
+      @apply capitalize text-5xl;
+    }
 
-  article h1 {
-    @apply capitalize;
-  }
+    h1 + p {
+      @apply mt-2 text-secondary;
+    }
 
-  article h1 + p {
-    @apply mt-2 text-gray-500;
-  }
+    .tags {
+      @apply mt-7 flex gap-3;
+    }
 
-  article .tags {
-    @apply mt-7 flex gap-3;
-  }
-
-  article .tags > * {
-    @apply rounded-full px-3 py-2;
+    .tags > * {
+      @apply rounded-full px-3 py-2;
+    }
   }
 </style>
