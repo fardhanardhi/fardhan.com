@@ -34,10 +34,15 @@
   }
 
   const pages = [
-    { name: 'Blog', url: '/blog', icon: 'github' },
-    { name: 'About', url: '/about', icon: 'github' },
-    { name: 'Contact', url: '/contact', icon: 'instagram' },
-    { name: 'RSS', url: '/rss.xml', icon: 'linkedin' }
+    { name: 'Home', url: '/' },
+    { name: 'Blog', url: '/blog' },
+    { name: 'Projects', url: '/projects' },
+    { name: 'Shorts', url: '/shorts' },
+    { name: 'About', url: '/about' }
+  ];
+  const more = [
+    { name: 'Statistics', url: '/statistics' },
+    { name: 'RSS', url: '/rss.xml' }
   ];
 </script>
 
@@ -80,13 +85,22 @@
         {#each pages as link}
           <li><a href={link.url}>{link.name}</a></li>
         {/each}
-        <!-- <li>
-          <a>Parent</a>
+        <li>
+          <a
+            href="/"
+            onclick={(e) => {
+              e.preventDefault();
+              console.log(0);
+            }}>More</a
+          >
           <ul class="p-2">
-            <li><a href="javascript:void(0);">Submenu 1</a></li>
-            <li><a href="javascript:void(0);">Submenu 2</a></li>
+            {#each more as link}
+              <li>
+                <a href={link.url}>{link.name}</a>
+              </li>
+            {/each}
           </ul>
-        </li> -->
+        </li>
       </ul>
     </div>
     <a href="/" class="btn btn-ghost hidden text-xl lg:flex">{config.title}</a>
@@ -107,15 +121,18 @@
       {#each pages as link}
         <li><a href={link.url}>{link.name}</a></li>
       {/each}
-      <!-- <li>
+      <li>
         <details>
-          <summary>Parent</summary>
+          <summary>More</summary>
           <ul class="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
+            {#each more as link}
+              <li>
+                <a href={link.url}>{link.name}</a>
+              </li>
+            {/each}
           </ul>
         </details>
-      </li> -->
+      </li>
     </ul>
   </div>
   <div class="navbar-end">
