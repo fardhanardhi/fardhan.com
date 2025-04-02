@@ -58,7 +58,7 @@
   @reference "../../../app.css";
 
   article {
-    @apply mx-auto max-w-3xl min-h-dvh;
+    @apply mx-auto max-w-3xl;
     h1 {
       @apply capitalize text-5xl;
     }
