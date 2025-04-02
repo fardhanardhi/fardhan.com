@@ -10,7 +10,7 @@
   <title>{config.title}</title>
 </svelte:head>
 
-<section>
+<section class="h-dvh">
   <ul class="posts">
     {#each data.posts as post}
       <li class="post">

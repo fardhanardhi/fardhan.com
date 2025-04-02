@@ -23,7 +23,7 @@
   let classActive = $derived(isLoad ? 'opacity-100' : 'opacity-0');
 </script>
 
-<main class="flex min-h-screen flex-col items-center justify-center p-4 md:p-24">
+<main class="flex min-h-dvh flex-col items-center justify-center p-4 md:p-24">
   <div class="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
     <!-- Profile Photo -->
     <div class="profilebg">
