@@ -182,11 +182,11 @@
   }
 
   .header {
-    @apply navbar;
+    @apply navbar min-h-4;
 
     @apply text-base-content xl:text-base-content;
-    @apply sticky top-0 xl:top-4;
-    @apply bg-base-100/30 xl:bg-base-300/30 dark:bg-neutral/75;
+    @apply sticky top-0 xl:top-2;
+    @apply bg-base-100/75 xl:bg-base-300/75 dark:bg-neutral/75;
     @apply shadow-lg xl:shadow-xl dark:shadow-2xl;
     @apply shadow-neutral/5 xl:shadow-neutral/5 dark:shadow-base-300;
     @apply rounded-none xl:rounded-4xl;
