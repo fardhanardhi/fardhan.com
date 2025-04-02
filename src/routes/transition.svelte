@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import { fade } from 'svelte/transition';
+  import { blur } from 'svelte/transition';
 
   type Props = {
     children: Snippet;
@@ -11,7 +11,7 @@
 </script>
 
 {#key url}
-  <div class="transition" in:fade>
+  <div class="transition" in:blur>
     {@render children?.()}
   </div>
 {/key}
