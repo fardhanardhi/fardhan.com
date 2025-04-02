@@ -11,16 +11,18 @@
   let { children, data } = $props();
 </script>
 
-<div class="gridrows-1 mx-auto grid h-full max-w-7xl">
-  <Header />
+<div class="h-dvh overflow-auto">
+  <div class="gridrows-1 mx-auto grid max-w-7xl">
+    <Header />
 
-  <main class="container-fluid">
-    <PageTransition url={data.url}>
-      {@render children?.()}
-    </PageTransition>
-  </main>
+    <main class="container-fluid">
+      <PageTransition url={data.url}>
+        {@render children?.()}
+      </PageTransition>
+    </main>
 
-  <!-- <Footer /> -->
+    <!-- <Footer /> -->
+  </div>
 </div>
 
 <style lang="postcss">
