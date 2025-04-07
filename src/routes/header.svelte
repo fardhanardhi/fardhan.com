@@ -84,7 +84,7 @@
           />
         </svg>
       </div>
-      <ul class="menu menu-xl dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+      <ul class="menu menu-lg dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         {#each pages as link}
           <li><a href={link.url}>{link.name}</a></li>
         {/each}
@@ -120,7 +120,7 @@
         '/' && 'hidden sm:max-xl:flex lg:hidden'}">{config.title}</a
     >
 
-    <ul class="menu menu-lg menu-horizontal hidden px-1 lg:flex">
+    <ul class="menu menu-md menu-horizontal hidden px-1 lg:flex">
       {#each pages as link}
         <li><a href={link.url}>{link.name}</a></li>
       {/each}
