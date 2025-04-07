@@ -1,4 +1,7 @@
-<script>
+<script lang="ts">
+  import { onDestroy, onMount } from 'svelte';
+  import { emoticons } from '$lib/utils';
+
   // You can customize these values
   const name = 'Fardhan Ardhi';
   const bio = [
@@ -21,19 +24,42 @@
 
   let isLoad = $state(false);
   let classActive = $derived(isLoad ? 'opacity-100' : 'opacity-0');
+
+  let currentEmoticon = $state(emoticons[0]);
+  let intervalId: number | null = null;
+
+  // Function to set a random emoticon
+  function setRandomEmoticon() {
+    const randomIndex = Math.floor(Math.random() * emoticons.length);
+    currentEmoticon = emoticons[randomIndex];
+  }
+
+  onMount(() => {
+    setRandomEmoticon(); // Set a random one immediately
+    intervalId = setInterval(setRandomEmoticon, 100); // Then start the interval
+
+    // Optional: Clear interval on component destroy, just in case
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
+  });
 </script>
 
 <main class="flex min-h-screen flex-col items-center justify-center p-4 md:p-24">
   <div class="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
     <!-- Profile Photo -->
-    <div class="profilebg">
+    <div class="profilebg flex items-center justify-center">
+      {#if !isLoad}
+        <span class="absolute z-0 text-4xl md:text-5xl">{currentEmoticon}</span>
+      {/if}
       <img
         onload={() => {
+          if (intervalId) clearInterval(intervalId); // Stop the interval
           isLoad = true;
         }}
-        src="https://gravatar.com/avatar/fbb1f6287e41d6458fa8f5d24b71ee56?size=256"
+        src="https://gravatar.com/avatar/fbb1f6287e41d6458fa8f5d24b71ee56?size=1920"
         alt="Profile"
-        class="h-full w-full object-cover {classActive} transition-opacity duration-500"
+        class="z-1 h-full w-full object-cover {classActive} transition-opacity duration-500"
       />
     </div>
 
@@ -155,6 +181,8 @@
     @apply transition-colors;
     @apply duration-200;
     @apply md:h-40 md:w-40;
+    /* Ensure the container keeps its size during loading */
+    position: relative; /* Needed if you absolutely position the image later */
   }
   .icon-item {
     @apply bg-base-100;
