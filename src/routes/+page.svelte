@@ -50,16 +50,16 @@
     <!-- Profile Photo -->
     <div class="profilebg flex items-center justify-center">
       {#if !isLoad}
-        <span class="absolute z-0 text-4xl md:text-5xl">{currentEmoticon}</span>
+        <span class="absolute text-4xl md:text-5xl">{currentEmoticon}</span>
       {/if}
       <img
         onload={() => {
           if (intervalId) clearInterval(intervalId); // Stop the interval
           isLoad = true;
         }}
-        src="https://gravatar.com/avatar/fbb1f6287e41d6458fa8f5d24b71ee56?size=1920"
+        src="https://gravatar.com/avatar/fbb1f6287e41d6458fa8f5d24b71ee56?size=256"
         alt="Profile"
-        class="z-1 h-full w-full object-cover {classActive} transition-opacity duration-500"
+        class=" h-full w-full object-cover {classActive} transition-opacity duration-500"
       />
     </div>
 
@@ -181,8 +181,6 @@
     @apply transition-colors;
     @apply duration-200;
     @apply md:h-40 md:w-40;
-    /* Ensure the container keeps its size during loading */
-    position: relative; /* Needed if you absolutely position the image later */
   }
   .icon-item {
     @apply bg-base-100;
