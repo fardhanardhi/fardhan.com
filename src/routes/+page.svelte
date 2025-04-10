@@ -47,7 +47,7 @@
 </script>
 
 <svelte:head>
-  <title>{config.title}</title>
+  <title>{config.pageTitle}</title>
 </svelte:head>
 
 <main class="flex min-h-screen flex-col items-center justify-center p-4 md:p-24">
