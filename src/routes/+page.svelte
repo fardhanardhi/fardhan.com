@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onDestroy, onMount } from 'svelte';
   import { emoticons } from '$lib/utils';
+  import * as config from '$lib/config';
 
   // You can customize these values
   const name = 'Fardhan Ardhi';
@@ -44,6 +45,10 @@
     };
   });
 </script>
+
+<svelte:head>
+  <title>{config.title}</title>
+</svelte:head>
 
 <main class="flex min-h-screen flex-col items-center justify-center p-4 md:p-24">
   <div class="mx-auto flex w-full max-w-3xl flex-col items-center text-center">

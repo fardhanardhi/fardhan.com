@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-  <title>{config.title}</title>
+  <title>Blog - {config.pageTitle}</title>
 </svelte:head>
 
 <section>
@@ -30,7 +30,7 @@
 
     .post {
       &:not(:last-child) {
-        @apply border-b pb-7 border-base-content/30;
+        @apply border-base-content/30 border-b pb-7;
       }
 
       .title {

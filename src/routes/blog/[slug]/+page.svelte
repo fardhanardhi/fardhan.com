@@ -1,11 +1,12 @@
 <script lang="ts">
+  import * as config from '$lib/config';
   import { formatDate } from '$lib/utils';
 
   let { data } = $props();
 </script>
 
 <svelte:head>
-  <title>{data.meta.title}</title>
+  <title>{data.meta.title} - {config.pageTitle}</title>
   <meta property="og:type" content="article" />
   <meta property="og:title" content={data.meta.title} />
 </svelte:head>
@@ -60,11 +61,11 @@
   article {
     @apply mx-auto max-w-3xl;
     h1 {
-      @apply capitalize text-5xl;
+      @apply text-5xl capitalize;
     }
 
     h1 + p {
-      @apply mt-2 text-secondary;
+      @apply text-secondary mt-2;
     }
 
     .tags {
