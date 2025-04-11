@@ -50,7 +50,7 @@
   <title>{config.pageTitle}</title>
 </svelte:head>
 
-<main class="flex min-h-screen flex-col items-center justify-center p-4 md:p-24">
+<main class="flex min-h-svh flex-col items-center justify-center p-4 md:p-24">
   <div class="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
     <!-- Profile Photo -->
     <div class="profilebg flex items-center justify-center">
