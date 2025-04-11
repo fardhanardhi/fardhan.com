@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <link rel="alternate" type="application/atom+xml" href="/rss.xml" />
     <meta charset="utf-8" />
@@ -11,4 +11,18 @@
   <body data-sveltekit-preload-data="hover">
     <div style="display: contents">%sveltekit.body%</div>
   </body>
+  <script>
+    const darkMode = (() => {
+      if (localStorage.getItem('darkMode') === null) {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+      } else return localStorage.getItem('darkMode') === 'true';
+    })();
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+      document.documentElement.setAttribute('data-theme', 'sunset');
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
 </html>

@@ -2,38 +2,14 @@
   import { page } from '$app/state';
   import { onMount } from 'svelte';
   import * as config from '$lib/config';
+  import { darkMode } from '$lib/stores';
   import { Menu } from 'lucide-svelte';
   import clsx from 'clsx';
 
-  let darkMode: boolean | null = $state(null);
   let drawer = $state(false);
 
-  onMount(() => {
-    const savedDarkMode = localStorage.getItem('darkMode');
-
-    if (savedDarkMode !== null) {
-      darkMode = savedDarkMode === 'true';
-    } else {
-      darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    }
-  });
-
-  $effect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-      document.documentElement.setAttribute('data-theme', 'sunset');
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.setAttribute('data-theme', 'light');
-    }
-  });
-
   function toggleDarkMode() {
-    darkMode = !darkMode;
-
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('darkMode', darkMode ? 'true' : 'false');
-    }
+    $darkMode = !$darkMode;
   }
 
   const pages = [
@@ -140,8 +116,8 @@
   </div>
   <div class="navbar-end">
     <div class="hidden flex-1 pr-2 text-end sm:inline xl:pr-4">
-      <label class="swap swap-rotate duration-75 {darkMode === null && 'hidden'}">
-        <input hidden type="checkbox" onclick={toggleDarkMode} bind:checked={darkMode} />
+      <label class="swap swap-rotate duration-75 {$darkMode === null && 'hidden'}">
+        <input hidden type="checkbox" onclick={toggleDarkMode} bind:checked={$darkMode} />
 
         <svg
           class="swap-on text-warning h-6 w-6 fill-current delay-75 duration-300"
@@ -192,8 +168,8 @@
       <ul class="menu menu-xl flex w-full">
         <!-- Sidebar content here -->
         <div class=" mx-4 my-4 flex-1 pr-2">
-          <label class="swap swap-rotate duration-75 {darkMode === null && 'hidden'}">
-            <input hidden type="checkbox" onclick={toggleDarkMode} bind:checked={darkMode} />
+          <label class="swap swap-rotate duration-75 {$darkMode === null && 'hidden'}">
+            <input hidden type="checkbox" onclick={toggleDarkMode} bind:checked={$darkMode} />
 
             <svg
               class="swap-on text-warning h-10 w-10 fill-current delay-75 duration-300"

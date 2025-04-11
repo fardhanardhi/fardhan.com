@@ -2,6 +2,8 @@
   import Footer from './footer.svelte';
   import Header from './header.svelte';
   import PageTransition from './transition.svelte';
+  import { unsubscribe } from '$lib/stores';
+  import { onDestroy } from 'svelte';
 
   // import 'open-props/style';
   // import 'open-props/normalize';
@@ -9,6 +11,10 @@
   import '../app.css';
 
   let { children, data } = $props();
+
+  onDestroy(() => {
+    unsubscribe();
+  });
 </script>
 
 <div class="gridrows-1 mx-auto grid h-full max-w-7xl">
