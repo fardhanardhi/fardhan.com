@@ -42,6 +42,8 @@
 </svelte:head>
 
 <div class="{page.url.pathname === '/' ? 'header-home' : 'header'} anim">
+  <!-- Tablet Navbar -->
+  <!-- Docked, Collapsed, Dropdown -->
   <div class="navbar-start">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost hidden sm:max-lg:flex">
@@ -84,6 +86,8 @@
     </div>
     <a href="/" class="btn btn-ghost hidden text-xl lg:flex">{config.title}</a>
   </div>
+  <!-- Desktop Navbar -->
+  <!-- Docked, Floating, Expanded, Center -->
   <div class="navbar-center">
     <a
       href="/"
@@ -143,6 +147,8 @@
   </div>
 </div>
 
+<!-- Mobile Navbar -->
+<!-- FAB, Collapsed, Drawer -->
 <div class="drawer drawer-end sm:hidden">
   <input id="my-drawer-4" type="checkbox" class="drawer-toggle" bind:checked={drawer} />
   <div class="drawer-content">
