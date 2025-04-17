@@ -9,7 +9,11 @@ published: true
 
 <script>
   import Counter from './counter.svelte'
+  import Doodle from './doodle.svelte'
+	import Illustration from '$lib/assets/blog/welcome-to-my-blog.jpg';
 </script>
+
+<!-- <Doodle src={Illustration}/> -->
 
 ## Hello and Welcome!
 

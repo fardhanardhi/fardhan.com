@@ -1,8 +1,18 @@
 <script lang="ts">
+  import { page } from '$app/state';
   import * as config from '$lib/config';
+  import Doodle from '$lib/posts/doodle.svelte';
   import { formatDate } from '$lib/utils';
 
   let { data } = $props();
+
+  const images = import.meta.glob<Record<string, string>>('/src/lib/assets/blog/*.{jpg,png,webp}', {
+    eager: true
+  });
+  const filename = `${page.params.slug}.jpg`;
+  // Adjust path as needed to match the filenames
+  const match = Object.entries(images).find(([path]) => path.endsWith(filename));
+  const doodle = match ? match[1].default : null;
 </script>
 
 <svelte:head>
@@ -12,6 +22,10 @@
 </svelte:head>
 
 <article>
+  {#if doodle}
+    <Doodle className="mb-14" src={doodle} />
+  {/if}
+
   <hgroup>
     <h1>{data.meta.title}</h1>
     <p>Published at {formatDate(data.meta.date)}</p>
@@ -69,11 +83,11 @@
     }
 
     .tags {
-      @apply mt-7 flex gap-3;
+      @apply mt-4 flex gap-4;
     }
 
     .tags > * {
-      @apply rounded-full px-3 py-2;
+      @apply rounded-full px-4 py-2;
     }
   }
 </style>
