@@ -14,12 +14,12 @@
 
   const pages = [
     { name: 'Home', url: '/' },
-    { name: 'Blog', url: '/blog' },
-    { name: 'Projects', url: '/projects' },
-    { name: 'Shorts', url: '/shorts' },
-    { name: 'About', url: '/about' }
+    { name: 'Blog', url: '/blog' }
   ];
   const more = [
+    { name: 'Projects', url: '/projects' },
+    { name: 'Shorts', url: '/shorts' },
+    { name: 'About', url: '/about' },
     { name: 'Statistics', url: '/statistics' },
     { name: 'RSS', url: '/rss.xml' }
   ];
