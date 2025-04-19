@@ -202,6 +202,10 @@ li {
     @apply max-w-full rounded-lg border-2 border-neutral-500 px-0 pt-2 pb-2 max-[500px]:w-sm max-[450px]:w-xs sm:w-full sm:pt-0;
     tab-size: 2;
   }
+
+  & *:not(pre) > code {
+    @apply m-0 rounded-md border-1 border-neutral-500/25 px-0.5 py-0 font-bold;
+  }
 }
 
 pre[data-code-title]:before {
