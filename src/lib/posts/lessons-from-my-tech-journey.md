@@ -5,7 +5,7 @@ date: '2025-04-04'
 categories:
   - general
   - programming
-published: true
+published: false
 ---
 
 ## What I've Learned

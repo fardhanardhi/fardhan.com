@@ -4,7 +4,7 @@ description: 'The motivation behind starting this blog and what I hope to achiev
 date: '2025-04-02'
 categories:
   - general
-published: true
+published: false
 ---
 
 ## My Blogging Journey

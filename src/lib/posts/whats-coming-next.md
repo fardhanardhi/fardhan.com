@@ -4,7 +4,7 @@ description: "A sneak peek at what I'll be sharing on this blog in the future."
 date: '2025-04-05'
 categories:
   - general
-published: true
+published: false
 ---
 
 ## Future Plans
