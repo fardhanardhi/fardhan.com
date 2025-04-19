@@ -13,7 +13,7 @@ const mdsvexOptions = {
     _: './src/mdsvex.svelte'
   },
   highlight: {
-    highlighter: await createHighlighter({ theme: 'poimandres' })
+    highlighter: await createHighlighter({ theme: 'material-ocean' })
   },
   remarkPlugins: [[remarkToc, { tight: true }]],
   rehypePlugins: [rehypeSlug]
