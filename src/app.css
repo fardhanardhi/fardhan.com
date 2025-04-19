@@ -210,9 +210,9 @@ pre[data-code-title]:before {
   @apply text-sm/8;
   @apply font-bold;
   content: attr(data-code-title);
-  @apply border-base-content/25 mb-2 block px-4;
+  @apply border-base-content/25 mb-1 block px-3;
   @apply border-t border-r border-b sm:border-t-0 sm:border-r-0;
-  @apply mr-2 rounded-tr-lg rounded-br-lg sm:m-0 sm:rounded-none;
+  @apply mr-2 rounded-tr-lg rounded-br-lg sm:mr-0 sm:rounded-none;
 }
 
 code[data-line-numbers] > span[data-line-number]::before {
