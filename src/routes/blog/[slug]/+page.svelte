@@ -33,7 +33,7 @@
 
   <div class="tags">
     {#each data.meta.categories as category}
-      <span class="bg-primary/10">&num;{category}</span>
+      <span>{category}</span>
     {/each}
   </div>
 
@@ -87,7 +87,7 @@
     }
 
     .tags > * {
-      @apply rounded-full px-4 py-2;
+      @apply border-primary/25 bg-primary/10 rounded-full border px-3 py-1;
     }
   }
 </style>
