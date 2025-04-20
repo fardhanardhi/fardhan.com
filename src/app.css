@@ -199,7 +199,8 @@ li {
   }
 
   & pre {
-    @apply max-w-full rounded-lg border-2 border-neutral-500 px-0 pt-2 pb-2 max-[500px]:w-sm max-[450px]:w-xs sm:w-full sm:pt-0;
+    @apply rounded-lg border-2 border-neutral-500;
+    @apply px-0 pt-2 pb-2 sm:pt-0;
     tab-size: 2;
   }
 
