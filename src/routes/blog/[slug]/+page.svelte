@@ -83,11 +83,17 @@
     }
 
     .tags {
-      @apply mt-4 flex gap-4;
+      @apply mt-4 gap-1.5;
+      @apply flex flex-wrap;
     }
 
     .tags > * {
-      @apply border-primary/25 bg-primary/10 rounded-full border px-3 py-1;
+      @apply border-primary/25 border;
+      @apply bg-primary/10;
+      @apply overflow-hidden rounded-full;
+      @apply px-3 py-1;
+      @apply text-ellipsis whitespace-nowrap;
+      @apply inline-grid;
     }
   }
 </style>
