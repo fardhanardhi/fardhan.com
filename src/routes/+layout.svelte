@@ -17,7 +17,7 @@
   });
 </script>
 
-<div class="gridrows-1 mx-auto grid h-full max-w-7xl">
+<div class=" mx-auto h-full max-w-7xl">
   <Header />
 
   <main class="container-fluid">
