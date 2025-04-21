@@ -5,6 +5,7 @@
   import { darkMode } from '$lib/stores';
   import { Menu } from 'lucide-svelte';
   import clsx from 'clsx';
+  import { ChevronLeft } from 'lucide-svelte';
 
   let drawer = $state(false);
 
@@ -41,9 +42,12 @@
   </script>
 </svelte:head>
 
+<!-- Tablet Navbar -->
+<!-- Docked, Collapsed, Dropdown -->
+<!-- & -->
+<!-- Desktop Navbar -->
+<!-- Docked, Floating, Expanded, Center -->
 <div class="{page.url.pathname === '/' ? 'header-home' : 'header'} anim">
-  <!-- Tablet Navbar -->
-  <!-- Docked, Collapsed, Dropdown -->
   <div class="navbar-start">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost hidden sm:max-lg:flex">
@@ -84,10 +88,14 @@
         </li>
       </ul>
     </div>
-    <a href="/" class="btn btn-ghost hidden text-xl lg:flex">{config.title}</a>
+    {#if page.url.pathname === '/'}
+      <a href="/" class="btn btn-ghost hidden text-xl lg:flex">{config.title}</a>
+    {:else}
+      <button class="btn btn-ghost btn-circle btn-lg mx-0.5" onclick={() => window.history.back()}>
+        <ChevronLeft />
+      </button>
+    {/if}
   </div>
-  <!-- Desktop Navbar -->
-  <!-- Docked, Floating, Expanded, Center -->
   <div class="navbar-center">
     <a
       href="/"
