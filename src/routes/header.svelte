@@ -158,18 +158,18 @@
 <!-- Mobile Navbar -->
 <!-- FAB, Collapsed, Drawer -->
 <div>
-  {#if page.url.pathname !== '/'}
-    <button
-      class={clsx(
-        'btn btn-xl bg-base-100 btn-circle',
-        'border-0 shadow-lg',
-        'fixed bottom-6 left-6'
-      )}
-      onclick={() => {
-        window.history.back();
-      }}><ChevronLeft /></button
-    >
-  {/if}
+  <button
+    class={clsx(
+      'btn btn-xl bg-base-100 btn-circle',
+      'border-0 shadow-lg',
+      'fixed bottom-6 left-6',
+      'sm:hidden',
+      { hidden: page.url.pathname === '/' }
+    )}
+    onclick={() => {
+      window.history.back();
+    }}><ChevronLeft /></button
+  >
   <div class="drawer drawer-end sm:hidden">
     <input id="my-drawer-4" type="checkbox" class="drawer-toggle" bind:checked={drawer} />
     <div class="drawer-content">
