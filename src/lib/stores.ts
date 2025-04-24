@@ -24,3 +24,15 @@ export const unsubscribe = darkMode.subscribe((value) => {
     localStorage.setItem('darkMode', value ? 'true' : 'false');
   }
 });
+
+export const syncHeight = (el: HTMLElement | null) => {
+  return writable<number | null>(null, (set) => {
+    if (!el) {
+      return;
+    }
+
+    let ro = new ResizeObserver(() => el && set(el.offsetHeight));
+    ro.observe(el);
+    return () => ro.disconnect();
+  });
+};

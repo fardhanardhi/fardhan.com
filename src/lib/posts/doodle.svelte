@@ -1,9 +1,11 @@
 <script lang="ts">
-  import { darkMode } from '$lib/stores';
+  import { darkMode, syncHeight } from '$lib/stores';
   import { onMount, onDestroy } from 'svelte';
   import { type Unsubscriber } from 'svelte/store';
   import { convert, OKLCH, sRGB } from '@texel/color';
   import clsx from 'clsx';
+  import { spring } from 'svelte/motion';
+  import { emoticons } from '$lib/utils';
 
   type Props = {
     src: string;
@@ -12,25 +14,58 @@
 
   let { src, className }: Props = $props();
 
-  let canvas: HTMLCanvasElement | null = null;
+  let canvas: HTMLCanvasElement | null = $state(null);
   let imageUrl: string | null = src;
   let unsubscribe: Unsubscriber;
+  let unsubscribeIcon: Unsubscriber;
+
+  let currentEmoticon = $state(emoticons[0]);
+  let intervalId: number | null = null;
+
+  let el: HTMLElement | null = $state(null);
+  let open = $state(false);
+
+  const heightSpring = spring(0, { stiffness: 0.05, damping: 0.2 });
+  const heightStore = $derived(syncHeight(el));
+
+  $effect(() => {
+    heightSpring.set(open ? $heightStore || 0 : 0);
+  });
 
   onMount(() => {
     unsubscribe = darkMode.subscribe((value) => {
       console.log('Store value updated:', value);
       processImage();
     });
+
+    setRandomEmoticon(); // Set a random one immediately
+    intervalId = setInterval(setRandomEmoticon, 100); // Then start the interval
+
+    // Optional: Clear interval on component destroy, just in case
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
   });
 
   onDestroy(() => {
     if (unsubscribe) unsubscribe();
   });
 
+  // Function to set a random emoticon
+  function setRandomEmoticon() {
+    const randomIndex = Math.floor(Math.random() * emoticons.length);
+    currentEmoticon = emoticons[randomIndex];
+  }
+
   function processImage() {
     if (!imageUrl || !canvas) return;
     const img = new window.Image();
-    img.onload = () => {
+    img.onload = async () => {
+      await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(true);
+        }, 1000);
+      });
       if (!canvas) return;
       canvas.width = img.width;
       canvas.height = img.height;
@@ -102,6 +137,10 @@
       }
       ctx.reset();
       ctx.putImageData(imageData, 0, 0);
+      open = true;
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
     };
     img.src = imageUrl;
   }
@@ -156,4 +195,15 @@
   }
 </script>
 
-<canvas class={clsx(className, 'w-full', 'object-contain')} bind:this={canvas}></canvas>
+{#if !open}
+  <div class="flex items-center justify-center">
+    <span class="absolute text-4xl md:text-5xl">{currentEmoticon}</span>
+  </div>
+{/if}
+<div class="w-full overflow-hidden {className}" style="height: {$heightSpring}px">
+  <canvas
+    bind:this={el}
+    class={clsx('w-full', 'object-contain', 'transition-all', { hidden: !canvas })}
+    bind:this={canvas}
+  ></canvas>
+</div>
