@@ -60,12 +60,7 @@
   function processImage() {
     if (!imageUrl || !canvas) return;
     const img = new window.Image();
-    img.onload = async () => {
-      await new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(true);
-        }, 1000);
-      });
+    img.onload = () => {
       if (!canvas) return;
       canvas.width = img.width;
       canvas.height = img.height;
