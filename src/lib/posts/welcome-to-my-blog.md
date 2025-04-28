@@ -21,7 +21,7 @@ function greet(name: string) {
 }
 ```
 
-```bash showLineNumbers title="shell"
+```bash showLineNumbers
 fvm flutter pub global run intl_utils:generate &&
 fvm flutter clean &&
 fvm flutter pub get &&

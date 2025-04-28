@@ -30,7 +30,7 @@ In our case, we aim to define a flexible **executor** pattern for performing cal
 
 Let’s start by looking at the core structure of our abstraction:
 
-```dart showLineNumbers title="abstraction"
+```dart showLineNumbers {3,8} title="abstraction"
 import 'dart:async';
 
 abstract class A<U extends Param, T> {
@@ -57,7 +57,7 @@ abstract class Param {}
 
 Now let’s look at how we would implement these abstract classes:
 
-```dart showLineNumbers title="implementation"
+```dart showLineNumbers {1,3} title="implementation"
 class ParamImpl extends Param {}
 
 class BImpl implements B {

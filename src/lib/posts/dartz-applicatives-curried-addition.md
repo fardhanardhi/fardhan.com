@@ -28,11 +28,11 @@ When combined, these concepts enable elegant and clean function application with
 
 Let’s take a look at the complete example:
 
-```dart showLineNumbers title="Example"
+```dart showLineNumbers {2-4} title="Example"
 void main() {
   final curried = (String x) => (double y) => (int z) {
-        return x + y.toString() + z.toString();
-      };
+    return x + y.toString() + z.toString();
+  };
 
   final a = some('x').map(curried);
   final b = some(5.0).ap(a);
