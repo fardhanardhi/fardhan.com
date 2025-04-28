@@ -183,9 +183,10 @@
     @apply overflow-hidden;
     @apply rounded-full;
     @apply border-4;
-    @apply transition-colors;
+    @apply transition-all;
     @apply duration-200;
     @apply md:h-40 md:w-40;
+    box-shadow: 0 -30px 300px -25px var(--color-primary);
   }
   .icon-item {
     @apply bg-base-100;
