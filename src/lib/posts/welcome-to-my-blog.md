@@ -4,7 +4,7 @@ description: 'An introduction to my new blog and what you can expect.'
 date: '2025-04-01'
 categories:
   - general
-published: false
+published: true
 ---
 
 <script>
