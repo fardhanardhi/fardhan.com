@@ -177,6 +177,7 @@
   @reference "../app.css";
 
   .profilebg {
+    -webkit-appearance: none;
     background-color: #cfd5e2;
     @apply border-base-300;
     @apply mb-6 h-32 w-32;
