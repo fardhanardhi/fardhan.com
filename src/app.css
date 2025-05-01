@@ -216,7 +216,7 @@ pre[data-code-title]:before {
   @apply bg-base-100;
   @apply text-sm/8;
   @apply font-bold;
-  @apply border-base-content/25 block border border-b-0 px-3;
+  @apply border-neutral-500/50 block border border-b-0 px-3;
   @apply rounded-none rounded-tl-md rounded-tr-md;
 }
 
@@ -230,7 +230,7 @@ code[data-line-numbers] > span[data-line-number]::before {
 
 code[data-line-numbers] {
   @apply py-2;
-  @apply border-base-content/25 border;
+  @apply border-neutral-500/50 border;
   @apply rounded-none rounded-br-md rounded-bl-md;
 }
 
