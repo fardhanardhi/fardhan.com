@@ -187,7 +187,7 @@
     @apply transition-all;
     @apply duration-200;
     @apply md:h-40 md:w-40;
-    box-shadow: 0 -30px var(--color-primary);
+    box-shadow: 0 -30px 300px  var(--color-primary);
   }
   .icon-item {
     @apply bg-base-100;
