@@ -187,7 +187,6 @@
     @apply transition-all;
     @apply duration-200;
     @apply md:h-40 md:w-40;
-    @apply translate-z-0;
     -webkit-box-shadow: 0 -30px 300px -25px var(--color-primary);
     box-shadow: 0 -30px 300px -25px var(--color-primary);
   }
