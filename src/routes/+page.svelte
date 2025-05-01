@@ -181,7 +181,7 @@
     background-color: #cfd5e2;
     @apply border-base-300;
     @apply mb-6 h-32 w-32;
-    @apply overflow-hidden;
+    @apply overflow-visible;
     @apply rounded-full;
     @apply border-4;
     @apply transition-all;
