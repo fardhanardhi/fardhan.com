@@ -70,7 +70,7 @@
 
     <!-- Name -->
     <h1
-      class="text-base-content mb-4 text-4xl font-bold transition-colors duration-200 md:text-5xl"
+      class="text-base-content mb-4 text-4xl font-bold transition-all duration-200 md:text-5xl"
     >
       {name}
     </h1>
@@ -187,6 +187,7 @@
     @apply transition-all;
     @apply duration-200;
     @apply md:h-40 md:w-40;
+    @apply translate-z-0;
     -webkit-box-shadow: 0 -30px 300px -25px var(--color-primary);
     box-shadow: 0 -30px 300px -25px var(--color-primary);
   }
