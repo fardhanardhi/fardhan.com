@@ -2,6 +2,7 @@
   import { onDestroy, onMount } from 'svelte';
   import { emoticons } from '$lib/utils';
   import * as config from '$lib/config';
+  import { setRandomTheme } from '$lib/stores';
 
   // You can customize these values
   const name = 'Fardhan Ardhi';
@@ -57,21 +58,21 @@
       {#if !isLoad}
         <span class="absolute text-4xl md:text-5xl">{currentEmoticon}</span>
       {/if}
-      <img
-        onload={() => {
-          if (intervalId) clearInterval(intervalId); // Stop the interval
-          isLoad = true;
-        }}
-        src="https://gravatar.com/avatar/fbb1f6287e41d6458fa8f5d24b71ee56?size=256"
-        alt="Profile"
-        class=" h-full w-full object-cover {classActive} transition-opacity duration-500"
-      />
+      <button onclick={() => setRandomTheme()}>
+        <img
+          onload={() => {
+            if (intervalId) clearInterval(intervalId); // Stop the interval
+            isLoad = true;
+          }}
+          src="https://gravatar.com/avatar/fbb1f6287e41d6458fa8f5d24b71ee56?size=256"
+          alt="Profile"
+          class=" h-full w-full object-cover {classActive} transition-opacity duration-500"
+        />
+      </button>
     </div>
 
     <!-- Name -->
-    <h1
-      class="text-base-content mb-4 text-4xl font-bold transition-all duration-200 md:text-5xl"
-    >
+    <h1 class="text-base-content mb-4 text-4xl font-bold transition-all duration-200 md:text-5xl">
       {name}
     </h1>
 
